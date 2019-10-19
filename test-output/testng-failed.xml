@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="utils.TestNGListener"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="Navegador" value="Chrome"/>
+    <classes>
+      <class name="tests.test">
+        <methods>
+          <include name="suite"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+          <include name="testUserStory1" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- tests.test -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

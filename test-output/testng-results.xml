@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-10-19T16:17:58Z" name="Suite" finished-at="2019-10-19T16:18:40Z" duration-ms="41504">
+    <groups>
+    </groups>
+    <test started-at="2019-10-19T16:17:58Z" name="Test" finished-at="2019-10-19T16:18:40Z" duration-ms="41504">
+      <class name="tests.test">
+        <test-method is-config="true" signature="suite(org.testng.ITestContext)[pri:0, instance:tests.test@762ef0ea]" started-at="2019-10-19T16:17:58Z" name="suite" finished-at="2019-10-19T16:17:58Z" duration-ms="94" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@2ec3633f]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suite -->
+        <test-method is-config="true" signature="beforeTest(java.lang.String)[pri:0, instance:tests.test@762ef0ea]" started-at="2019-10-19T16:17:58Z" name="beforeTest" finished-at="2019-10-19T16:18:03Z" duration-ms="4974" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="testUserStory1(java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.test@762ef0ea]" started-at="2019-10-19T16:18:07Z" name="testUserStory1" data-provider="dataUserStory1" finished-at="2019-10-19T16:18:39Z" duration-ms="32390" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[www.carnival.com ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6 - 9 DAYS]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void tests.test.testUserStory1(java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUserStory1 -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:tests.test@762ef0ea]" started-at="2019-10-19T16:18:40Z" name="afterTest" finished-at="2019-10-19T16:18:40Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- tests.test -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
