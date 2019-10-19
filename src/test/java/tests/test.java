@@ -28,7 +28,7 @@ public class test extends testBase {
 	@Test(dataProvider = "dataUserStory1", dataProviderClass = ExcelDataProvider.class)
 	public void testUserStory1(String url, String duration, Method test) throws Exception {
 
-		ExtentTestManager.startTest(test.getName(), "Test to check Sharks");
+		ExtentTestManager.startTest(test.getName(), "Test to check testUserStory1");
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 
@@ -111,8 +111,6 @@ public class test extends testBase {
 
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("vrg-search-unit")));
 
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("vrg-search-unit")));
-
 		precios = driver.findElements(By.className("vrgf-price-box__price"));
 
 		int precio3 = Integer.parseInt(precios.get(0).getText().replace("$ ", "").replace("* AVG PP", ""));
@@ -120,9 +118,9 @@ public class test extends testBase {
 		count = 0;
 		while (precio3 == precio1 && count < 30) {
 
-			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("vrg-search-unit")));
+			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("rz-bar-wrapper")));
 
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("vrg-search-unit")));
+			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("vrg-search-unit")));
 
 			precios = driver.findElements(By.className("vrgf-price-box__price"));
 
@@ -135,6 +133,70 @@ public class test extends testBase {
 			Assert.fail("THE PRICE FILTER IS NOT SHOWING THE CORRECT RESULTS");
 
 		}
+
+	}
+
+	@Test(dataProvider = "dataUserStory2", dataProviderClass = ExcelDataProvider.class)
+	public void testUserStory2(String url, String puertos, Method test) throws Exception {
+
+		ExtentTestManager.startTest(test.getName(), "Test to check testUserStory2");
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		// ABRE LA PAGINA
+
+		driver.get("https://" + url);
+
+		// DEBIDO QUE EN ALGUNOS CASOS SE VISUALIZA UNAS MODAL DE PUBLICIDAD SE CIERRAN
+		// LA CENTRAL O LA QUE ESTA A LA DERECHA
+
+		Login.closeModal();
+
+		// CLICK EN SAIL
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("cdc-ports"))).click();
+
+		// BUSCA EL PUERTO
+
+		List<WebElement> ports = driver.findElements(By.className("cdc-filter-button"));
+
+		int count = 0;
+		while (count < ports.size()) {
+
+			if (ports.get(count).getText().toUpperCase().equals(puertos.toUpperCase())) {
+
+				ports.get(count).click();
+
+				count = ports.size();
+
+				System.out.println("CLICK EN " + puertos);
+
+			} else {
+
+				count++;
+			}
+
+		}
+
+		// CLICK EN SAIL PARA ESCONDER LOS SAILS
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("cdc-ports"))).click();
+
+		// CLICK AL PRIMER SITIO
+
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("vrgf-learn-more")));
+
+		List<WebElement> learn = driver.findElements(By.className("vrgf-learn-more"));
+
+		learn.get(0).click();
+
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("diagonal-button-new")));
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.className("diagonal-button-new"))).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.name("continue"))).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("continueNav"))).click();
 
 	}
 
